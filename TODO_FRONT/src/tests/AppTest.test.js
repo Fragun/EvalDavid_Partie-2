@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import App from "../App"; 
+import App from "../App";
 
 test("Ajoute et supprime une todo", async () => {
   render(<App />);
@@ -15,7 +15,7 @@ test("Ajoute et supprime une todo", async () => {
   fireEvent.click(screen.getByText("Add"));
 
   // Verify the new todo is added
-  await waitFor(() => { 
+  await waitFor(() => {
     expect(screen.getByText("New Todo")).toBeInTheDocument();
   });
 
@@ -23,8 +23,7 @@ test("Ajoute et supprime une todo", async () => {
   fireEvent.click(screen.getByText("Supprimer"));
 
   // Verify the todo is deleted
-  await waitFor(() => { 
-    expect(screen.queryByText("New Todo")).not.toBeInTheDocument();   
+  await waitFor(() => {
+    expect(screen.queryByText("New Todo")).not.toBeInTheDocument();
   });
 });
- 

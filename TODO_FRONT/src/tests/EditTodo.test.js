@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import EditTodo from "../components/EditTodo";
 
-test("Ne se modifie pas si l'input est vide", () => { 
+test("Ne se modifie pas si l'input est vide", () => {
   const todo = {
     id: 2000,
     content: "Old Todo",
@@ -19,5 +19,3 @@ test("Ne se modifie pas si l'input est vide", () => {
 
   expect(updateTodoMock).not.toHaveBeenCalled(); //on vérifie que la fonction n'a pas était appellée
 });
-
-  
