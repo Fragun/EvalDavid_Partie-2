@@ -16,7 +16,7 @@ test("Ajoute une todo lorsque le bouton est cliqué", async () => {
     //permet d'attendre que les fonctions asynchrones soient effectuées
     expect(addTodoMock).toHaveBeenCalledTimes(1); //vérifie que addTodoMock est appellé une fois
     expect(addTodoMock).toHaveBeenCalledWith(
-      expect.objectContaining({ content: "Sel Adoucisseur" })
+    expect.objectContaining({ content: "Sel Adoucisseur" })
     );
   }); // vérifie que la fonction est appellé avec un objet contenant la propriété content ayant la valeur "Sel Adoucisseur"
 });
@@ -24,7 +24,7 @@ test("Ajoute une todo lorsque le bouton est cliqué", async () => {
 test("Ajoute une todo lorsqu'on presse Enter", async () => {
   const addTodoMock = jest.fn();
   render(<AddTodo addTodo={addTodoMock} />);
-
+ 
   const input = screen.getByPlaceholderText("Add a todo");
 
   fireEvent.change(input, { target: { value: "Patate" } });
