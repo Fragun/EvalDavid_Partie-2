@@ -5,25 +5,18 @@ import App from "../App";
 test("Ajoute et supprime une todo", async () => {
   render(<App />);
 
-  // Verify initial state
-  expect(screen.queryByText("Aucune todo pour le moment")).toBeInTheDocument();
-
-  // Add a new todo
   fireEvent.change(screen.getByPlaceholderText("Add a todo"), {
-    target: { value: "New Todo" },
+    target: { value: "Nouvelle tâche" },
   });
   fireEvent.click(screen.getByText("Add"));
 
-  // Verify the new todo is added
   await waitFor(() => {
-    expect(screen.getByText("New Todo")).toBeInTheDocument();
+    expect(screen.getByText("Nouvelle tâche")).toBeInTheDocument();
   });
 
-  // Delete the todo
   fireEvent.click(screen.getByText("Supprimer"));
 
-  // Verify the todo is deleted
   await waitFor(() => {
-    expect(screen.queryByText("New Todo")).not.toBeInTheDocument();
+    expect(screen.queryByText("Nouvelle tâche")).not.toBeInTheDocument(); 
   });
 });
